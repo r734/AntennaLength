@@ -6,7 +6,10 @@ const double SPEED_OF_LIGHT = 299'792'458;
 int main(int argc, char** argv)
 {
     if (argc != 2)
+    {
         std::cout << "Usage: " << argv[0] << " <MHz>\n";
+        return 1;
+    }
 
     std::string freq_mhz_str = argv[1];
     
@@ -16,7 +19,7 @@ int main(int argc, char** argv)
     
     // speed = wavelength * frequency
     // so wavelength = speed / frequency
-    
+
     double wavelength = SPEED_OF_LIGHT / freq_hz;
     std::cout << "Wavelength: " << wavelength << "m" << "\n";
     std::cout << "Half wave: " << wavelength / 2 << "m" << "\n";
