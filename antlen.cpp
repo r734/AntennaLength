@@ -1,10 +1,17 @@
 #include <iostream>
+#include <string>
 
 const double SPEED_OF_LIGHT = 299'792'458;
 
-int main()
+int main(int argc, char** argv)
 {
-    double freq_mhz = 440; // get from command line
+    if (argc != 2)
+        std::cout << "Usage: " << argv[0] << " <MHz>\n";
+
+    std::string freq_mhz_str = argv[1];
+    
+    double freq_mhz = std::stod(freq_mhz_str);
+
     double freq_hz = freq_mhz * 1'000'000;
     
     // speed = wavelength * frequency
